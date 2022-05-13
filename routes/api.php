@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +27,15 @@ Route::group([
 ], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/profile', [AuthController::class, 'profile']);
+});
+
+// Users
+Route::group([
+    //'middleware' => 'jwt.auth'
+], function(){
+    Route::get('/users', [UserController::class, 'getAllusers']);
+    Route::get('/users/{id}', [UserController::class, 'getusersById']);
+    Route::post('/users', [UserController::class, 'postusers']);
+    Route::put('/users/{id}', [UserController::class, 'putusers']);
+    Route::delete('/users/{id}', [UserController::class, 'deleteusers']);
 });
