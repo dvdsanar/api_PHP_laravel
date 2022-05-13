@@ -64,7 +64,7 @@ class UserController extends Controller
                 'name' => 'required|string',
                 'email' => 'required|email',
                 'password' => 'required|string',
-                'streamName'=> 'required|string',
+                'alias'=> 'required|string',
             ]);
 
             if ($validator->fails()) {
@@ -96,7 +96,7 @@ class UserController extends Controller
             'name' => 'string|max:100',
             'email' => 'email',
             'password' => 'string',
-            'streamName' => 'string'
+            'alias' => 'string'
         ]);
 
         if ($validator->fails()) {
@@ -120,8 +120,8 @@ class UserController extends Controller
             $user->password = $request->password;
         };
 
-        if(isset($request->streamName)){
-            $user->streamName = $request->streamName;
+        if(isset($request->alias)){
+            $user->alias = $request->alias;
         };
 
         $user->save();

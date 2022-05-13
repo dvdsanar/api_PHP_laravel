@@ -35,7 +35,7 @@ Route::group([
 ], function(){
     Route::get('/users', [UserController::class, 'getAllusers']);
     Route::get('/users/{id}', [UserController::class, 'getusersById']);
-    Route::post('/users', [UserController::class, 'postusers']);
-    Route::put('/users/{id}', [UserController::class, 'putusers']);
-    Route::delete('/users/{id}', [UserController::class, 'deleteusers']);
+    Route::post('/users', [UserController::class, 'createNewUser']);
+    Route::put('/users/{id}', [UserController::class, 'updateUserById']);
+    Route::delete('/users/{id}', [UserController::class, 'deleteUserById']);
 });
