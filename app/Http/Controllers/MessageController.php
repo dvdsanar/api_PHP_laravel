@@ -92,7 +92,7 @@ class MessageController extends Controller
         }
     }
 
-    public function updateMessageById(Request $request, $messageId) 
+    public function updateMessage(Request $request, $messageId) 
     {
         try {
             Log::info('Update message by id');
@@ -126,7 +126,7 @@ class MessageController extends Controller
         }
     }
 
-    public function deletedMessage($id)
+    public function deleteMessage($id)
     {
         try {
             Log::info('delete message');

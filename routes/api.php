@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PartyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -75,9 +76,9 @@ Route::group([
     'middleware' => 'jwt.auth'
 ], function(){
 Route::post('/message/{id}', [MessageController::class, 'newMessage']);    //party id
-Route::get('/message/{id}', [MessageController::class, 'getMessageById']); //party id
-Route::get('/messages', [MessageController::class, 'getMessages']);
-Route::put('/message/{id}', [MessageController::class, 'updateMessage']); //message id
-Route::delete('/message', [MessageController::class, 'deleteMessage']);
+Route::get('/message/{id}', [MessageController::class, 'getMessageById']); //party messages by its id
+Route::get('/messages', [MessageController::class, 'getMessages']); // all messages of user loged
+Route::put('/message/{id}', [MessageController::class, 'updateMessage']); //message id, only can edit the owner of message
+Route::delete('/message/{id}', [MessageController::class, 'deleteMessage']);
 
 });
