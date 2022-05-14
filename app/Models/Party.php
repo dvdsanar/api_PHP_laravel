@@ -11,6 +11,7 @@ class Party extends Model
     protected $fillable = [
         'name',
         'game_id',
+        'user_id',
     ];
 
     public function games()
@@ -21,6 +22,10 @@ class Party extends Model
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'party_id');
     }
 };
 
