@@ -26,7 +26,7 @@ class GameController extends Controller
             $newGame = new Game();
             $userId = auth()->user()->id;
 
-            $newGame->name = $request->name;
+            $newGame->title = $request->title;
             $newGame->user_id=$userId;  
 
             $newGame->save();
@@ -68,7 +68,7 @@ class GameController extends Controller
         }
     }
 
-    public function gameById($id) //busqueda por id del usuario 
+    public function gameById($id) // User Id, 
     {
         try {
             Log::info('Get a game by id');
@@ -93,6 +93,34 @@ class GameController extends Controller
             return response()->json([ 'error'=> 'Error, try again!'], 500);
         }
     }
+
+    public function gameByTitle($title) // By Title, 
+    {
+        try {
+            Log::info('Get a game by title');
+
+            $userId = auth()->user()->id;
+
+            $game = DB::table('games')->where('title',$title)->get();
+
+            if(empty($game)){
+                return response()->json(
+                    [
+                        "error" => "We do not have this game"
+                    ],400
+                );
+            };
+
+            return response()->json($game, 200);
+
+        } catch (\Throwable $th) {
+            Log::error('Fail, can not get game by title -> '.$th->getMessage());
+
+            return response()->json([ 'error'=> 'Error, try again!'], 500);
+        }
+    }
+
+
 
     public function updateGame(Request $request, $id)
     {
@@ -139,7 +167,7 @@ class GameController extends Controller
             };
             $game->delete();
 
-            return response()->json(["data"=> "You delete the game"], 200);
+            return response()->json(["data"=> "The game has been deleted"], 200);
 
         } catch (\Throwable $th) {
         Log::error('Fail, can not delete the game->'.$th->getMessage());
