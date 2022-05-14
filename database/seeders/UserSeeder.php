@@ -17,10 +17,47 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert(
             [
-            'name'=>'sara',
-            'email'=>'sara@sara.com',
-            'password'=>'sara',
-            'alias'=>'shara',
-            ]);
+                'name'=>'gema',
+                'email'=>'gema@gema.com',
+                'password'=>'gema',
+                'alias'=>'gemma'
+            ]
+            );
+
+        DB::table('users')->insert(
+            [
+                'name'=>'vinicius',
+                'email'=>'vini@vini.com',
+                'password'=>'vini',
+                'alias'=>'viniJR'
+            ]
+            );
+
+        DB::table('users')->insert(
+            [
+                'name'=>'paco',
+                'email'=>'paco@paco.com',
+                'password'=>'paco',
+                'alias'=>'Polilla'
+            ]
+            );
+
+        DB::table('users')->insert(
+            [
+                'name'=>'dani',
+                'email'=>'dani@dani.com',
+                'password'=>'dani',
+                'alias'=>'daniDEvitto'
+            ]
+            );
+
+        DB::table('users')->insert(
+            [
+                'name'=>'alba',
+                'email'=>'alba@alba.com',
+                'password'=>'alba',
+                'alias'=>'AlbusDumbledore'
+            ]
+            );
     }
 }
