@@ -21,6 +21,7 @@ use App\Http\Controllers\UserController;
 //     return $request->user();
 // });
 
+// Authentication
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::group([
@@ -41,6 +42,7 @@ Route::group([
     Route::delete('/users/{id}', [UserController::class, 'deleteUserById']);
 });
 
+// Games
 Route::group([
     'middleware' => 'jwt.auth'
 ], function(){
@@ -50,4 +52,15 @@ Route::group([
     Route::get('/game/title/{title}', [GameController::class, 'gameByTitle']); //title 
     Route::put('/game/{id}', [GameController::class, 'updateGame']);
     Route::delete('/game/{id}', [GameController::class, 'deleteGame']);
+});
+
+// Parties
+Route::group([
+    'middleware' => 'jwt.auth'
+], function(){
+Route::post('/party', [PartyController::class, 'createParty']);
+Route::get('/party/{id}', [PartyController::class, 'getPartyById']);
+Route::get('/parties', [PartyController::class, 'getAllParties']);
+Route::patch('/party/{id}', [PartyController::class, 'updateParty']);
+Route::delete('/party/{id}', [PartyController::class, 'deleteParty']);
 });
