@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\PartyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -59,8 +60,8 @@ Route::group([
     'middleware' => 'jwt.auth'
 ], function(){
 Route::post('/party', [PartyController::class, 'createParty']);
-Route::get('/party/{id}', [PartyController::class, 'getPartyById']);
 Route::get('/parties', [PartyController::class, 'getAllParties']);
+Route::get('/party/{id}', [PartyController::class, 'getPartyById']); //by game id
 Route::patch('/party/{id}', [PartyController::class, 'updateParty']);
 Route::delete('/party/{id}', [PartyController::class, 'deleteParty']);
 });
