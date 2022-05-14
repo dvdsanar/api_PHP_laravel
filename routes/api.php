@@ -69,3 +69,15 @@ Route::post('/partyUser', [PartyController::class, 'newPartyUser']);
 Route::get('/getPartyUser/{id}', [PartyController::class, 'getPartyUser']);
 Route::post('/leavePartyUser', [PartyController::class, 'leavePartyUser']);
 });
+
+// Messages
+Route::group([
+    'middleware' => 'jwt.auth'
+], function(){
+Route::post('/message/{id}', [MessageController::class, 'newMessage']);    //party id
+Route::get('/message/{id}', [MessageController::class, 'getMessageById']); //party id
+Route::get('/messages', [MessageController::class, 'getMessages']);
+Route::put('/message/{id}', [MessageController::class, 'updateMessage']); //message id
+Route::delete('/message', [MessageController::class, 'deleteMessage']);
+
+});
