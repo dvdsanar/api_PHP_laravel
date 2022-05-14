@@ -68,7 +68,7 @@ class UserController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return response()->json($validator->errors(), 418);
+                return response()->json($validator->errors(), 404);
             };
 
             $newUser = new User();  
@@ -100,7 +100,7 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 418);
+            return response()->json($validator->errors(), 404);
         };
         
         $user = User::where('id',$id)->first();
