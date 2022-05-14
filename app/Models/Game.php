@@ -18,7 +18,7 @@ class Game extends Model
         return $this->belongsTo(User::class, 'user_id');    
     }
 
-    public function channels()
+    public function parties()
     {
         return $this->hasMany(Party::class);
     }

@@ -67,7 +67,7 @@ Route::put('/party/{id}', [PartyController::class, 'updateParty']);
 Route::delete('/party/{id}', [PartyController::class, 'deleteParty']);
 
 Route::post('/partyUser', [PartyController::class, 'newPartyUser']);
-Route::get('/getPartyUser/{id}', [PartyController::class, 'getPartyUser']);
+Route::get('/partyUser/{id}', [PartyController::class, 'getPartyUser']);
 Route::post('/leavePartyUser', [PartyController::class, 'leavePartyUser']);
 });
 

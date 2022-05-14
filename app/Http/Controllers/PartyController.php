@@ -41,7 +41,7 @@ class PartyController extends Controller
     public function getAllParties()
     {
         try {
-            Log::info('Init get all channels');
+            Log::info('Init get all parties');
             $party = Party::all(); 
 
             if(empty($party)){
@@ -51,12 +51,12 @@ class PartyController extends Controller
                     ], 202
                 );
             };
-            Log::info('Get all channels');
+            Log::info('Get all parties');
 
             return response()->json($party, 200);
 
         } catch (\Throwable $th) {
-            Log::error('Failed to get all channels->'.$th->getMessage());
+            Log::error('Failed to get all parties->'.$th->getMessage());
 
             return response()->json([ 'error'=> 'Error, try again!'], 500);        }
     }

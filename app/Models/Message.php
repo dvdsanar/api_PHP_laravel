@@ -19,7 +19,7 @@ class Message extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function channels()
+    public function parties()
     {
         return $this->belongsTo(Channel::class, 'party_id');
     }
