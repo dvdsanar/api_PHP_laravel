@@ -32,7 +32,7 @@ Route::group([
 
 // Users
 Route::group([
-    //'middleware' => 'jwt.auth'
+    'middleware' => 'jwt.auth'
 ], function(){
     Route::get('/users', [UserController::class, 'getAllusers']);
     Route::get('/users/{id}', [UserController::class, 'getusersById']);
