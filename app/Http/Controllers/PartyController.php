@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Party;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -129,6 +130,63 @@ class PartyController extends Controller
             
         } catch (\Throwable $th) {
             Log::error('Failed to deleted the channel->'.$th->getMessage());
-            return response()->json([ 'error'=> 'Error, try again!'], 500);        }
+            return response()->json([ 'error'=> 'Error, try again!'], 500); 
+        }
+    }
+
+    public function newPartyUser(Request $request)
+    {
+        try {
+            Log::info('Init create createChannelByUserId');
+            $userId = auth()->user()->id;
+            $user = User::find($userId);
+            $user->party_user()->attach($request->idparty);
+             
+            return response()->json(["data"=>"ok", "success"=>'Party created'], 200);
+
+        } catch (\Throwable $th) {
+            Log::error('Failed to create the channel->'.$th->getMessage());
+            return response()->json([ 'error'=> 'Error, try again!'], 500);
+        }
+    }
+
+    public function getPartyUser ($id)  
+    {
+        try {
+            Log::info('Init get channel by id');
+
+            $channel = DB::table('party_user')->where('user_id',$id)->get();
+
+            if(empty($channel)){
+                return response()->json(
+                    [
+                        "error" => "channel not exists"
+                    ],400
+                );
+            };
+            
+            return response()->json($channel, 200);
+
+        } catch (\Throwable $th) {
+            Log::error('Failed to get channel by id->'.$th->getMessage());
+        
+            return response()->json([ 'error'=> 'Error, try again!'], 500);
+        }
+    }
+
+    public function leavePartyUser(Request $request)
+    {
+        try {
+            Log::info('Leaving party');
+            $userId = auth()->user()->id;
+            $user = User::find($userId);
+            $user->party_user()->detach($request->idparty);
+             
+            return response()->json(["data"=>"ok", "success"=>'You left created'], 200);
+
+        } catch (\Throwable $th) {
+            Log::error('Failed to create the channel->'.$th->getMessage());
+            return response()->json([ 'error'=> 'Error, try again!'], 500);
+        }
     }
 }

@@ -64,4 +64,8 @@ Route::get('/parties', [PartyController::class, 'getAllParties']);
 Route::get('/party/{id}', [PartyController::class, 'getPartyById']); //by game id
 Route::put('/party/{id}', [PartyController::class, 'updateParty']);
 Route::delete('/party/{id}', [PartyController::class, 'deleteParty']);
+
+Route::post('/partyUser', [PartyController::class, 'newPartyUser']);
+Route::get('/getPartyUser/{id}', [PartyController::class, 'getPartyUser']);
+Route::post('/leavePartyUser', [PartyController::class, 'leavePartyUser']);
 });
