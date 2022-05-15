@@ -66,6 +66,8 @@ He realizado 4 entidades referenciadas como Users, Games, Parties, Messages y un
 -   Tabla `Messages`:
     Esta tabla contiene los mensajes que crean los usuarios, contiene la clave foránea de Users y de Parties, solo pueden crear y visualizar mensajes los usuarios que estén unidos a esa party, además sólo podrán editar o borrar mensajes aquel usuario que los haya creado.
 
+    ![relaciones.png](app/Images/relaciones.png)
+
 # Relaciones 🥨
 
 Las relaciones entre las tablas son las siguientes:
