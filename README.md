@@ -40,7 +40,7 @@ Se han utilizado las siguientes tecnologías:
 
 # Descripción del proyecto 📋
 
-Heroku Url: https://lets-play-php.herokuapp.com/
+Heroku Url: https://letsplay1.herokuapp.com/
 
 Proyecto del bootcamp en GeeksHubs dónde nos piden que realicemos el backend de una web app dónde los jugadores pueden crear salas de videojuegos con el fin de chatear con otros jugadores que quieran jugar, unirse a otras salas ya creadas, escribir mensajes...
 A continuación cito los objetivos MVP del proyecto:
@@ -50,7 +50,7 @@ A continuación cito los objetivos MVP del proyecto:
 -   Los usuarios tienen que poder crear Partidas (parties) para un determinado videojuego.
 -   Los usuarios tienen que poder buscar Partidas seleccionando un videojuego.
 -   Los usuarios pueden entrar y salir de una Party.
--   Los usuarios tienen que poder enviar mensajes a la Party. Estos mensajes tienen que poder ser editados y borrados por su el usuario que lo ha crado.
+-   Los usuarios tienen que poder enviar mensajes a la Party. Estos mensajes tienen que poder ser editados y borrados por su el usuario que lo ha creado.
 -   Los mensajes que existan en una Party se tienen que visualizar como un chat común.
 -   Los usuarios pueden introducir y modificar sus datos de perfil.
 -   Los usuarios tienen que poder hacer logout de la aplicación web.
@@ -208,7 +208,7 @@ Para poder consumir el backend es necesario lo siguiente:
 -   Clonar o forkear el repositorio si deseas, _(https://github.com/dvdsanar/api_PHP_laravel)_.
 -   Instalar Composer: `https://getcomposer.org/download/`
 -   Hacer _composer install_ para cargar las dependencias del composer.json
--   Atacar al API publicada en https://lets-play-php.herokuapp.com/ o como localhost si lo prefieres (es necesario cambiarlo en el .env)
+-   Atacar al API publicada en https://letsplay1.herokuapp.com/ o como localhost si lo prefieres (es necesario cambiarlo en el .env)
 -   Es necesario utilizar Postman para probar el Api ya que carece de Frontend.
 -   Conexión a internet
 
